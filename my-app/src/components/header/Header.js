@@ -1,6 +1,9 @@
 import './Header.scss'
 
 const Header = () => {
+   // const onChangeColorBtn = () => {
+
+   // }
    return (
       <div className='header'>
          <div className="top">
@@ -14,7 +17,10 @@ const Header = () => {
             </div>
          </div>
          <div className="searchPanel">
-            <input className="searchInput" type='search' placeholder='Movie search'  />
+            <div className="search">
+               <input className="searchInput" type='search' placeholder='Movie search' />
+               <div className='searchBtn'></div>
+            </div>
          </div>
       </div>
    )
