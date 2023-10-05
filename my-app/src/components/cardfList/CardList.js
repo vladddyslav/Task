@@ -1,12 +1,14 @@
 import './cardList.scss'
 import CardItem from '../card/cardItem';
-import Pagination from '../plagination/Pagination';
- 
-const CardList = () => {
+import { useState } from 'react';
+import Spinner from '../spinner/spinner';
+
+const CardList = ({ searchValue }) => {
+   const [loading, setLoading] = useState(false);
 
    return (
       <div className='cardlist'>
-         <CardItem />
+         {loading ? <Spinner/> : <CardItem searchValue={searchValue}  />}
       </div>
 
    )

@@ -1,9 +1,16 @@
+import { useState } from 'react';
 import './Header.scss'
 
-const Header = () => {
-   // const onChangeColorBtn = () => {
+const Header = ({ searchValue, setSearchValue }) => {
+   // const [searchValue,setSearchValue] = useState(null);
 
-   // }
+   const onSetSearchValue = (event) => {
+      const newValue = event.target.value;
+      setSearchValue(newValue);
+   };
+
+   //  console.log(searchValue);
+
    return (
       <div className='header'>
          <div className="top">
@@ -18,7 +25,15 @@ const Header = () => {
          </div>
          <div className="searchPanel">
             <div className="search">
-               <input className="searchInput" type='search' placeholder='Movie search' />
+               <input
+                  id="searching"
+                  className="searchInput"
+                  type='search'
+                  placeholder='Movie search'
+                  value={searchValue} // Привязываем значение к состоянию searchValue
+                  onChange={onSetSearchValue} // Вызываем функцию при изменении значения
+               />
+
                <div className='searchBtn'></div>
             </div>
          </div>

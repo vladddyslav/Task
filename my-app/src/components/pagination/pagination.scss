@@ -1,0 +1,17 @@
+.pagination{
+   width: 100%;
+   height: 70px;
+   position: fixed;
+   background-color: transparent ;
+   bottom: 0px;
+   display: flex;
+   justify-content: center; /* Центрирование по горизонтали */
+   align-items: center; /* Центрирование по вертикали */
+   margin-left: -10%;
+}
+.btn-next-page {
+   // background-color: transparent;
+   background-color: gold;
+   height: 50px;
+   width: 100px;
+}
