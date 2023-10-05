@@ -9,42 +9,41 @@ const Pagination = ({ propFuncNext, propFunPrev, propOnSetPage, activePage, tota
    const renderAllPage = () => {
       const pagesArr = []
       for (let i = 1; i <= 6; i++) {
-         pagesArr.push((<button className="btn-next-page" key={i} onClick={() => onSetPage(i)}>{i}</button>))
+         pagesArr.push((<div className={i == activePage ? "btn-page __active" : "btn-page"} key={i} onClick={() => onSetPage(i)}>{i}</div>))
       }
 
 
+      console.log(pagesArr[0])
       return pagesArr;
    }
 
    const renderNeedsPages = () => {
-      const needPageArrr = [(<button className='btn-next-page'  onClick={() => onSetPage(1)}  >....</button>)]
+      const needPageArrr = [(<div className='btn-page'  onClick={() => onSetPage(1)}  >....</div>)]
 
       const pagesFillter = (pageNow) => {
          const newPageArr = renderAllPage;
          for (let i = (pageNow - 2); i <= totalPages && i <= pageNow + 2; i++) {
             if (pageNow < totalPages) {
-               needPageArrr.push((<button className="btn-next-page" onClick={() => onSetPage(i)}>{i}</button>))
+               needPageArrr.push((<div className={i == activePage ? "btn-page __active" : "btn-page"} key={i} onClick={() => onSetPage(i)}>{i}</div>))
             }
          }
          return needPageArrr
       }
       let pageArr = pagesFillter(activePage);
-
       return (pageArr)
    }
 
    const renderPagination = () => {
-
+      
       return (
          <>
             <div className="pagination">
-               <button className="btn-next-page" onClick={() => onPrevPage()}>Prev</button>
+               <div className="btn-page __prev" onClick={() => onPrevPage()}></div>
                {activePage < 3 ? renderAllPage() : null}
                {activePage >= 3 ?
                   renderNeedsPages()
                   : null}
-               
-               <button className="btn-next-page" onClick={() => onNextPage()}>Next</button>
+               <div className="btn-page __next" onClick={() => onNextPage()}></div>
             </div>
          </>
       )

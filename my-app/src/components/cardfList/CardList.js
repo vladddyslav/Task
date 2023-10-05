@@ -1,16 +1,17 @@
 import './cardList.scss'
-import CardItem from '../card/cardItem';
-import { useState } from 'react';
-import Spinner from '../spinner/spinner';
-
+// import { useEffect, useState } from 'react';
+// import Spinner from '../spinner/spinner';
+import Search from '../Searching/Searching';
+import PopularFilms from '../card/PopularFilms';
+// import Pagination from '../pagination/Pagination';
+// import FilmService from '../../service/FilmService';
 const CardList = ({ searchValue }) => {
-   const [loading, setLoading] = useState(false);
-
    return (
       <div className='cardlist'>
-         {loading ? <Spinner/> : <CardItem searchValue={searchValue}  />}
+         {searchValue.length > 2 ?
+            <Search searchValue={searchValue} /> :
+            <PopularFilms />}
       </div>
-
    )
 }
 

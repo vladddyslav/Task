@@ -1,17 +1,39 @@
-.pagination{
+.pagination {
    width: 100%;
    height: 70px;
-   position: fixed;
-   background-color: transparent ;
+   // position: fixed;
+   background-color: transparent;
    bottom: 0px;
    display: flex;
-   justify-content: center; /* Центрирование по горизонтали */
-   align-items: center; /* Центрирование по вертикали */
-   margin-left: -10%;
+   justify-content: center;
+   /* Центрирование по горизонтали */
+   align-items: center;
+   /* Центрирование по вертикали */
+   margin-left: -5%;
 }
-.btn-next-page {
-   // background-color: transparent;
-   background-color: gold;
-   height: 50px;
-   width: 100px;
+
+.btn-page {
+   height: 40px;
+   width: 40px;
+   text-align: center; /* Выравнивание текста по центру по горизонтали */
+   display: flex;
+   justify-content: center; /* Выравнивание текста по центру по горизонтали */
+   align-items: center; /* Выравнивание текста по центру по вертикали */
+   font-family: 'Roboto';
+   transition: background-color 0.4s ease; /* переход фона */
+
+
+   &.__prev {
+      background-image: url("../../pictures/next.png");
+   }
+
+   &.__next{
+      background-image: url("../../pictures/prev.png");
+ 
+   }
+   &.__active{
+      background-color: #FF6B08;
+      border-radius: 10px;
+   }
+
 }
